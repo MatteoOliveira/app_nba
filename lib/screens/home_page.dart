@@ -8,74 +8,122 @@ final Uri _url = Uri.parse('https://flutter.dev');
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
+  static const Color nbaBlue = Color(0xFF007AC1);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('NBA App'),
-      ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding: customContainerStyle.padding,
-              decoration: customContainerStyle.decoration,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              width: double.infinity,
+              padding: CustomStyles.primaryContainer.padding,
+              decoration: CustomStyles.primaryContainer.decoration,
+              child: Stack(
                 children: [
-                  const SizedBox(height: 10),
-                  Image.asset('assets/images/coupe2.jpg'),
-                ],
-              ),
-            ),
-            const SizedBox(height: 20),
-            Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const SizedBox(height: 20),
-                  Text(
-                    'History of the NBA',
-                    style: Theme.of(context).textTheme.headline5,
+                  Image.asset(
+                    'assets/images/coupe2.jpg',
+                    width: double.infinity,
+                    fit: BoxFit.cover,
                   ),
-                  Text(
-                    'The National Basketball Association (NBA) is a professional basketball league in North America. The league was founded in New York City on June 6, 1946, as the Basketball Association of America (BAA). It changed its name to the NBA in 1949 after merging with the rival National Basketball League (NBL). The NBA is one of the major professional sports leagues in the United States and Canada. It is composed of 30 teams (29 in the United States and 1 in Canada) and is one of the four major professional sports leagues in the United States and Canada. The NBA is widely considered.',
-                    style: Theme.of(context).textTheme.bodyText1,
-                  ),
-                  const SizedBox(height: 20),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => TeamsPage()),
-                      );
-                    },
-                    child: const Text('View Teams'),
-                  ),
-                  const SizedBox(height: 20),
-                  Container(
-                    padding: secondaryContainerStyle.padding,
-                    decoration: secondaryContainerStyle.decoration,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'About the Application',
-                          style: Theme.of(context).textTheme.headline5,
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          'The NBA App is designed to bring you the latest updates and detailed statistics about NBA games and players. You can explore different teams, track player performances, and get insights into game analytics. Whether you are a casual fan or a die-hard basketball enthusiast, this app has something for everyone.',
-                          style: Theme.of(context).textTheme.bodyText1,
-                        ),
-                        const SizedBox(height: 20),
-                      ],
+                  Center(
+                    child: Text(
+                      '',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        backgroundColor: Colors.black.withOpacity(0.5),
+                      ),
                     ),
                   ),
                 ],
               ),
+            ),
+            const SizedBox(height: 20),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 20),
+                Text(
+                  'History of the NBA',
+                  style: Theme.of(context).textTheme.headline5?.copyWith(
+                        color: nbaBlue,
+                        fontWeight: FontWeight.bold,
+                      ),
+                  textAlign: TextAlign.left,
+                ),
+                Text(
+                  'La National Basketball Association (NBA) est une ligue professionnelle de basket-ball en Amérique du Nord. La ligue a été fondée à New York le 6 juin 1946 sous le nom de Basketball Association of America (BAA). Elle a changé son nom pour devenir la NBA en 1949 après avoir fusionné avec la ligue rivale National Basketball League (NBL)...',
+                  style: Theme.of(context).textTheme.bodyText1,
+                  textAlign: TextAlign.left,
+                ),
+                const SizedBox(height: 20),
+                Container(
+                  padding: CustomStyles.secondaryContainer.padding,
+                  decoration: CustomStyles.secondaryContainer.decoration,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'About the Application',
+                        style: Theme.of(context).textTheme.headline5?.copyWith(
+                              color: nbaBlue,
+                              fontWeight: FontWeight.bold,
+                            ),
+                        textAlign: TextAlign.left,
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        'Lapplication NBA est conçue pour vous apporter les dernières mises à jour et des statistiques détaillées sur les matchs et les joueurs de la NBA. Vous pouvez explorer différentes équipes, suivre les performances des joueurs et obtenir des analyses détaillées des matchs. Que vous soyez un fan occasionnel ou un passionné de basket-ball, cette application a quelque chose à offrir pour tout le monde',
+                        style: Theme.of(context).textTheme.bodyText1,
+                        textAlign: TextAlign.left,
+                      ),
+                      const SizedBox(height: 20),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Container(
+                  padding: CustomStyles.secondaryContainer.padding,
+                  decoration: CustomStyles.secondaryContainer.decoration,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Explore NBA Teams',
+                        style: Theme.of(context).textTheme.headline5?.copyWith(
+                              color: nbaBlue,
+                              fontWeight: FontWeight.bold,
+                            ),
+                        textAlign: TextAlign.left,
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        'Cliquez sur le bouton ci-dessous pour voir des informations détaillées sur les différentes équipes de la NBA, leurs statistiques, leurs joueurs et bien plus encore',
+                        style: Theme.of(context).textTheme.bodyLarge,
+                        textAlign: TextAlign.left,
+                      ),
+                      const SizedBox(height: 20),
+                      Center(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => TeamsPage()),
+                            );
+                          },
+                          child: const Text('Voir les équipes'),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ],
         ),

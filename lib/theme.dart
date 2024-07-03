@@ -1,78 +1,43 @@
 import 'package:flutter/material.dart';
 
-final ThemeData nbaTheme = ThemeData(
-  primaryColor: Colors.black,
-  textTheme: const TextTheme(
-    headline1: TextStyle(
-      fontSize: 24,
-      fontWeight: FontWeight.bold,
-      color: Colors.black,
+class CustomStyles {
+  static final primaryContainer = ContainerStyle(
+    padding: const EdgeInsets.all(10),
+    decoration: BoxDecoration(
+      color: Colors.blueGrey[50],
+      borderRadius: BorderRadius.circular(10),
     ),
-    headline5: TextStyle(
-      fontSize: 20,
-      fontWeight: FontWeight.bold,
-      color: Colors.black,
-    ),
-    bodyText1: TextStyle(
-      fontSize: 16,
-      color: Colors.black87,
-    ),
-  ),
-  elevatedButtonTheme: ElevatedButtonThemeData(
-    style: ElevatedButton.styleFrom(
-      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-    ),
-  ),
-  appBarTheme: const AppBarTheme(
-    backgroundColor: Colors.black,
-    centerTitle: true,
-    titleTextStyle: TextStyle(
+  );
+
+  static final secondaryContainer = ContainerStyle(
+    padding: const EdgeInsets.all(10),
+    decoration: BoxDecoration(
       color: Colors.white,
-      fontSize: 20,
-      fontWeight: FontWeight.bold,
+      borderRadius: BorderRadius.circular(10),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.grey.withOpacity(0.5),
+          spreadRadius: 1,
+          blurRadius: 5,
+          offset: Offset(0, 3), // changes position of shadow
+        ),
+      ],
     ),
-  ),
-);
-
-ContainerStyle customContainerStyle = ContainerStyle(
-  padding: EdgeInsets.all(16),
-  decoration: BoxDecoration(
-    color: Colors.teal.withOpacity(0.1),
-    borderRadius: BorderRadius.circular(10),
-    boxShadow: [
-      BoxShadow(
-        color: Colors.black.withOpacity(0.1),
-        blurRadius: 10,
-        spreadRadius: 5,
-      ),
-    ],
-  ),
-);
-
-ContainerStyle secondaryContainerStyle = ContainerStyle(
-  padding: const EdgeInsets.all(16),
-  decoration: BoxDecoration(
-    color: Colors.white,
-    borderRadius: BorderRadius.circular(10),
-    boxShadow: [
-      BoxShadow(
-        color: Colors.black.withOpacity(0.1),
-        blurRadius: 10,
-        spreadRadius: 5,
-      ),
-    ],
-  ),
-);
+  );
+}
 
 class ContainerStyle {
-  final EdgeInsets padding;
+  final EdgeInsetsGeometry padding;
   final BoxDecoration decoration;
 
-  ContainerStyle({
+  const ContainerStyle({
     required this.padding,
     required this.decoration,
   });
 }
+
+// Define your theme data here if needed
+final ThemeData appTheme = ThemeData(
+  primarySwatch: Colors.blue,
+  // Add other theme properties here if needed
+);

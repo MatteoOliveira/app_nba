@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'content.dart';
-import './models/team.dart'; // Ensure this import is correct
+import './models/team.dart';
+import './screens/splash_screen.dart';  
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const ContentScreen(),
+      home: const SplashScreen(),
     );
   }
 }

@@ -81,11 +81,11 @@ class TeamDetailPageState extends State<TeamDetailPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Points per game: ${stats['points_per_game']}',
+                  Text('Points par game: ${stats['points_per_game']}',
                       style: Theme.of(context).textTheme.bodyText2),
-                  Text('Rebounds per game: ${stats['rebounds_per_game']}',
+                  Text('Rebounds par game: ${stats['rebounds_per_game']}',
                       style: Theme.of(context).textTheme.bodyText2),
-                  Text('Assists per game: ${stats['assists_per_game']}',
+                  Text('Assists par game: ${stats['assists_per_game']}',
                       style: Theme.of(context).textTheme.bodyText2),
                 ],
               ),
